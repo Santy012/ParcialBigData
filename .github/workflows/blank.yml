@@ -48,7 +48,13 @@ jobs:
           pip install -r requirements.txt  # Instala dependencias desde el requirements.txt
           pip install "moto<5.0"  # Instala una versión compatible de moto
           pytest  # Ejecuta los tests
-
+      # 🔹 INSTALAR AWS CLI (antes de configurar credenciales)
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+          aws --version  # ✅ Verifica que la instalación fue exitosa
+          
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
