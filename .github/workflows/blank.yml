@@ -44,10 +44,11 @@ jobs:
         run: |
           python -m venv venv  # Crear el entorno virtual
           source venv/bin/activate  # Activarlo
-          python -m pip install --upgrade pip setuptools wheel  # Asegura setuptools y wheel
-          pip install -r requirements.txt  # Instala dependencias desde el requirements.txt
-          pip install "moto<5.0"  # Instala una versión compatible de moto
-          pip install awscli zappa  # Instalar AWS CLI y Zappa
+          python -m pip install --upgrade pip wheel
+          pip install "setuptools<58.0.0"  # Fijar versión compatible
+          pip install -r requirements.txt
+          pip install "moto<5.0"
+          pip install awscli zappa
       - name: Pruebas unitarias
         run: |
           source venv/bin/activate  # Activarlo
