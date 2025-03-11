@@ -66,6 +66,8 @@ jobs:
       - name: Deploy with Zappa
         run: |
           source venv/bin/activate  # Activarlo
+          cd Parser
+          ls
           zappa deploy devParser
 
       # 🔹 Paso 7: Verificar despliegue
