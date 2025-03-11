@@ -1,1 +1,4 @@
 /envParcial1
+*pyc*
+*pycache*
+*cache*
