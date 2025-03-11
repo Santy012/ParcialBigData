@@ -50,6 +50,7 @@ jobs:
           pip install awscli zappa  # Instalar AWS CLI y Zappa
       - name: Pruebas unitarias
         run: |
+          source venv/bin/activate  # Activarlo
           pytest # Ejecuta los tests
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -59,12 +60,16 @@ jobs:
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
             aws-region: us-east-1
       - name: List buckets
-        run: aws s3 ls
+        run: |
+          source venv/bin/activate  # Activarlo
+          aws s3 ls
       - name: Deploy with Zappa
         run: |
+          source venv/bin/activate  # Activarlo
           zappa deploy devParser
 
       # 🔹 Paso 7: Verificar despliegue
       - name: Check Zappa Status
         run: |
+          source venv/bin/activate  # Activarlo
           zappa status devParser
