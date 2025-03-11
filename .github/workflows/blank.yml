@@ -65,7 +65,7 @@ jobs:
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         run: |
           cd Parser/
-          zappa deploy devParser
+          zappa update devParser
 
       # 🔹 Paso 7: Verificar despliegue
       - name: Check Zappa Status
