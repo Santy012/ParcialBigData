@@ -60,7 +60,8 @@ jobs:
         run: aws s3 ls
       - name: Deploy with Zappa
         run: |
-          zappa deploy devParser
+          cd Parser
+          zappa update devParser
 
       # 🔹 Paso 7: Verificar despliegue
       - name: Check Zappa Status
