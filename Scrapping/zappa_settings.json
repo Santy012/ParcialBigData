@@ -1,0 +1,28 @@
+{
+    "devScrapping": {
+        "app_function": "scrapping.app",
+        "aws_region": "us-east-1",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "profile_name": "default",
+        "project_name": "scrapping",
+        "runtime": "python3.10",
+        "s3_bucket": "primerparcialbucketurls",
+        "keep_warm": false,
+        "apigateway_enabled": false,
+        "manage_roles": false,
+        "role_name": "LabRole",
+        "events": [
+            {
+                "function": "scrapping.app",
+                "type": "schedule",
+                "expression": "cron(0/2 * * * ? *)"
+            }
+        ]
+    }
+}
